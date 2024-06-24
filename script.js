@@ -7,7 +7,7 @@ async function getSongs(folder){
     let songs = [];
     cover = [];
     folder = folder ? folder : 'songs/PopularAlbum/Animal';
-    let api = await fetch(`http://127.0.0.1:5500/${folder}/`);
+    let api = await fetch(`http://${folder}/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
@@ -70,7 +70,7 @@ getSongs();
 async function getArtist(folder){
     currentFolder = folder;
     songs = [];
-    let api = await fetch(`http://127.0.0.1:5500/songs/PopularArtist/`);
+    let api = await fetch(`http://songs/PopularArtist/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
@@ -80,7 +80,7 @@ async function getArtist(folder){
         const element = as[index];
         if(element.href.includes('/PopularArtist/')){
             folder = element.href.split('/songs/').slice(-1)[0];
-            let api = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+            let api = await fetch(`http://songs/${folder}/info.json`);
             let responce = await api.json();
             songContenor.innerHTML = songContenor.innerHTML + `
             <div data-folder=${ folder} class="card"> 
@@ -111,7 +111,7 @@ getArtist()
 async function getAlbum(folder){
     currentFolder = folder;
     songs = [];
-    let api = await fetch(`http://127.0.0.1:5500/songs/PopularAlbum/`);
+    let api = await fetch(`http://songs/PopularAlbum/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
@@ -121,7 +121,7 @@ async function getAlbum(folder){
         const element = as[index];
         if(element.href.includes('/PopularAlbum/')){
             folder = element.href.split('/songs/').slice(-1)[0];
-            let api = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+            let api = await fetch(`http://songs/${folder}/info.json`);
             let responce = await api.json();
             songContenor.innerHTML = songContenor.innerHTML + `
             <div data-folder=${ folder} class="card"> 
@@ -148,7 +148,7 @@ getAlbum()
 async function getSinger(folder){
     currentFolder = folder;
     songs = [];
-    let api = await fetch(`http://127.0.0.1:5500/songs/PopularRadio/`);
+    let api = await fetch(`http://songs/PopularRadio/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
@@ -158,7 +158,7 @@ async function getSinger(folder){
         const element = as[index];
         if(element.href.includes('/PopularRadio/')){
             folder = element.href.split('/songs/').slice(-1)[0];
-            let api = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+            let api = await fetch(`http://songs/${folder}/info.json`);
             let responce = await api.json();
             songContenor.innerHTML = songContenor.innerHTML + `
             <div data-folder=${ folder} class="card"> 
