@@ -7,7 +7,7 @@ async function getSongs(folder){
     let songs = [];
     cover = [];
     folder = folder ? folder : 'songs/PopularAlbum/Animal';
-    let api = await fetch(`http://${folder}/`);
+    let api = await fetch(`https://yourd-spotify.vercel.app/${folder}/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
@@ -70,7 +70,7 @@ getSongs();
 async function getArtist(folder){
     currentFolder = folder;
     songs = [];
-    let api = await fetch(`http://songs/PopularArtist/`);
+    let api = await fetch(`https://yourd-spotify.vercel.app/songs/PopularArtist/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
@@ -111,7 +111,7 @@ getArtist()
 async function getAlbum(folder){
     currentFolder = folder;
     songs = [];
-    let api = await fetch(`http://songs/PopularAlbum/`);
+    let api = await fetch(`https://yourd-spotify.vercel.app/songs/PopularAlbum/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
@@ -148,7 +148,7 @@ getAlbum()
 async function getSinger(folder){
     currentFolder = folder;
     songs = [];
-    let api = await fetch(`http://songs/PopularRadio/`);
+    let api = await fetch(`https://yourd-spotify.vercel.app/songs/PopularRadio/`);
     let responce = await api.text();
     let newDiv =  document.createElement("div");
     newDiv.innerHTML = responce;
